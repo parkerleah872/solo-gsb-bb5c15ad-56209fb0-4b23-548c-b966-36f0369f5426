@@ -1,0 +1,15 @@
+services:
+  raytracer:
+    build: .
+    image: raytracer:latest
+    container_name: raytracer
+    ports:
+      - "8000:8000"
+    volumes:
+      - raytracer-data:/data
+    environment:
+      RAYTRACER_DB: /data/raytracer.db
+    restart: unless-stopped
+
+volumes:
+  raytracer-data:
